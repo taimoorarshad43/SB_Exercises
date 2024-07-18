@@ -1,1 +1,1 @@
-Exercises for the SpringBoard Bootcamp that cover various topics
+Exercises for the SpringBoard Bootcamp that cover various topics.
