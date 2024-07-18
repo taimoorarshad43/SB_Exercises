@@ -1,0 +1,38 @@
+git config --global user.name "taimoorarshad"
+git config --global user.email "taimoor.arshad@gmail.com"
+
+mkdir GitAdventure && cd GitAdventure
+git init
+
+echo "Embarking on my journey to master Git" > journey.txt
+git status
+
+git add journey.txt
+git commit "journey.txt"
+
+echo "This file is meant to be deleted" > temp.txt
+git add temp.txt
+git commit -m "Initial commit" temp.txt
+git rm temp.txt
+
+mv journey.txt adventure.txt
+echo > "My jounery evolves into an adventure with Git."
+git add adventure.txt
+git commit -m "renaming to adventure.txt" adventure.txt
+
+echo "*.log" > .gitignore
+git add .gitignore
+git commit -m "adding .gitignore" .gitignore
+echo "test logs" > dummy.log
+git add .
+git status
+
+echo "Exploring the depths of Git commands and their powers" >> adventure.txt
+git status
+git add adventure.txt
+git commit -m "Adding text" adventure.txt
+
+git log
+git checkout 3704242 -- adventure.txt
+git add adventure.txt
+git commit -m "Reverting adventure.txt to initial state"
