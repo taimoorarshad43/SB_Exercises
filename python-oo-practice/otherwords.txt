@@ -1,0 +1,9 @@
+#Section 1
+cat
+dog
+list
+
+#Section 2
+meow
+state
+water
