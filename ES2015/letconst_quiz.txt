@@ -1,0 +1,21 @@
+Questions
+- What is the difference between ***var*** and ***let***?
+- What is the difference between **var** and ***const***?
+- What is the difference between **let** and **const**?
+- What is hoisting?
+
+Answers
+- Var variables can be redeclared and reassigned whilst let variables can be 
+  reassigned but not redeclared. Let variables are block-scoped, meaning they
+  are only accessible within the block they are defined in, while var variables
+  are function-scoped or globally scoped.
+- Var variables can be redeclared and reassigned but const variables
+  cannot be redeclared or reassigned. Const variables are also block-scoped,
+  like let variables, but they must be initialized at the time of declaration.
+- Let variables can be reassigned but not redeclared, while const variables
+  cannot be redeclared or reassigned. Both let and const are block-scoped.
+- Hoisting is a JavaScript mechanism where variables and function declarations
+  are moved to the top of their containing scope during the compilation phase.
+  This means that variables can be referenced before they are declared, but only
+  var variables are hoisted. Let and const variables are not initialized until
+  their declaration is encountered in the code.
