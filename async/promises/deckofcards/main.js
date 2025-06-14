@@ -12,7 +12,7 @@
 // https://deckofcardsapi.com/api/deck/<<deck_id>>/shuffle/?remaining=true
 // reshuffle the deck. Add the remaining = true arg to keep the cards that are drawn outside of deck.
 
-//"l8v28y3v2zvb" - deck ID
+//"l8v28y3v2zvb" - deck ID (This is super deprecated)
 
 let makeDeckURL = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
 let deckID = 'l8v28y3v2zvb';
