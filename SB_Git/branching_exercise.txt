@@ -1,0 +1,6 @@
+1. git checkout -b
+2. Fast forwards are when you are on a branch and you are trying to merge it into the main branch.
+    Recursive merges are when the two branches have diverged and you are trying to merge them together.
+3. git checkout -b new_branch
+4. git branch -d new_branch
+5. merge conflicts happen when there are changes in both branches that cannot be automatically merged by Git. You need to resolve these conflicts manually.
