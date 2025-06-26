@@ -1,0 +1,16 @@
+1. HTTP is hyper text transfer protocol, which is used to transfer data over the web.
+2. A URL is a uniform resource locator, which is the address of a resource on the web.
+3. DNS is domain name system, which translates domain names into IP addresses.
+4. A query string is a part of a URL that contains data to be sent to the server.
+5. One HTTP verb is GET which is used to request data from a server. Another is POST which is used to send data to a server.
+6. An HTTP request uses an aforementioned HTTP verb to a server which results in a server action.
+7. An HTTP response is the data sent back from the server to the client after processing the request or posting data as an action.
+8. An HTTP header is a part of the HTTP request or response that contains metadata about the request or response.
+    Some example HTTP response headers are "Content-Type" which indicates the media type of the resource, and "Cache-Control" which specifies caching policies.
+    Some example HTTP request headers are "User-Agent" which identifies the client software making the request, and "Accept" which specifies the media types that are acceptable for the response.
+9. When you type a URL into a browser
+    The browser first checks its cache for a stored version of the resource.
+    If not found, it sends a DNS request to resolve the domain name to an IP address.
+    The browser then sends an HTTP request to the server at that IP address using the specified URL.
+    The server processes the request and sends back an HTTP response containing the requested resource or an error message.
+    The browser then renders the resource for the user to view.
