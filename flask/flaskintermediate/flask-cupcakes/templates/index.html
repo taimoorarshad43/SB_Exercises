@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcakes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .cupcake-list {
+            margin: 20px 0;
+        }
+        .cupcake-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .cupcake-item img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        label {
+            display: inline-block;
+            width: 80px;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 5px;
+            width: 200px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cupcakes</h1>
+    
+    <div class="cupcake-list" id="cupcake-list">
+        <!-- Cupcakes will be loaded here -->
+    </div>
+
+    <h2>Add a New Cupcake</h2>
+    <form id="new-cupcake-form">
+        <div class="form-group">
+            <label for="flavor">Flavor:</label>
+            <input type="text" id="flavor" name="flavor" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="size">Size:</label>
+            <select id="size" name="size" required>
+                <option value="">Select size...</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" name="rating" min="0" max="10" step="0.1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="image">Image URL:</label>
+            <input type="url" id="image" name="image" placeholder="https://example.com/cupcake.jpg">
+        </div>
+        
+        <button type="submit">Add Cupcake</button>
+    </form>
+
+    <script>
+        // Load cupcakes when page loads
+        $(document).ready(function() {
+            loadCupcakes();
+            
+            // Handle form submission
+            $('#new-cupcake-form').on('submit', function(e) {
+                e.preventDefault();
+                addCupcake();
+            });
+        });
+
+        // Function to load cupcakes from API
+        function loadCupcakes() {
+            axios.get('/api/cupcakes')
+                .then(function(response) {
+                    const cupcakes = response.data.cupcakes;
+                    const cupcakeList = $('#cupcake-list');
+                    cupcakeList.empty();
+                    
+                    cupcakes.forEach(function(cupcake) {
+                        const cupcakeHtml = `
+                            <div class="cupcake-item">
+                                <h3>${cupcake.flavor}</h3>
+                                <p><strong>Size:</strong> ${cupcake.size}</p>
+                                <p><strong>Rating:</strong> ${cupcake.rating}</p>
+                                <img src="${cupcake.image}" alt="${cupcake.flavor} cupcake">
+                            </div>
+                        `;
+                        cupcakeList.append(cupcakeHtml);
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Error loading cupcakes:', error);
+                    $('#cupcake-list').html('<p>Error loading cupcakes</p>');
+                });
+        }
+
+        // Function to add a new cupcake
+        function addCupcake() {
+            const formData = {
+                flavor: $('#flavor').val(),
+                size: $('#size').val(),
+                rating: parseFloat($('#rating').val()),
+                image: $('#image').val() || 'https://tinyurl.com/demo-cupcake'
+            };
+
+            axios.post('/api/cupcakes', formData)
+                .then(function(response) {
+                    // Clear the form
+                    $('#new-cupcake-form')[0].reset();
+                    
+                    // Reload cupcakes to show the new one
+                    loadCupcakes();
+                })
+                .catch(function(error) {
+                    console.error('Error adding cupcake:', error);
+                    alert('Error adding cupcake. Please try again.');
+                });
+        }
+    </script>
+</body>
+</html> 
