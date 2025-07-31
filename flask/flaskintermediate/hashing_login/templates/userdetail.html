@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}User Details{% endblock %}
+
+{% block content %}
+<div class="alert alert-success mt-4">
+    <h4 class="alert-heading">Welcome, {{ user.username }}!</h4>
+    <ul class="list-group mb-3">
+        <li class="list-group-item"><strong>Username:</strong> {{ user.username }}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+        <li class="list-group-item"><strong>First Name:</strong> {{ user.first_name }}</li>
+        <li class="list-group-item"><strong>Last Name:</strong> {{ user.last_name }}</li>
+    </ul>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger mb-3">Logout</a>
+    <hr>
+    <h5>Feedback</h5>
+    <a href="{{ url_for('add_feedback', username=user.username) }}" class="btn btn-primary btn-sm mb-2">Add Feedback</a>
+    {% if feedbacks %}
+        <ul class="list-group mb-3">
+        {% for feedback in feedbacks %}
+            <li class="list-group-item">
+                <strong>{{ feedback.title }}</strong><br>
+                {{ feedback.content }}
+                <div class="mt-2">
+                    <a href="{{ url_for('update_feedback', feedback_id=feedback.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ url_for('delete_feedback', feedback_id=feedback.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No feedback yet.</p>
+    {% endif %}
+    <form action="{{ url_for('delete_user', username=user.username) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This cannot be undone.');">
+        <button type="submit" class="btn btn-outline-danger">Delete User</button>
+    </form>
+</div>
+{% endblock %} 

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ action }} Feedback{% endblock %}
+
+{% block content %}
+<h2>{{ action }} Feedback</h2>
+<form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control", placeholder="Enter title") }}
+        {% for error in form.title.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.content.label(class="form-label") }}
+        {{ form.content(class="form-control", placeholder="Enter feedback", rows=5) }}
+        {% for error in form.content.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">{{ action }} Feedback</button>
+    <a href="{{ url_for('user_detail', username=session['username']) }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %} 
