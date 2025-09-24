@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
     let todos = JSON.parse(localStorage.getItem('todos')) || [];
   
+    // Saving todos in local storage
     function saveTodos() {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   
+    // creating todo elements in HTML
     function createTodoElement(todoText, completed = false) {
       const li = document.createElement('li');
       li.textContent = todoText;
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load existing todos
     todos.forEach(todo => createTodoElement(todo.text, todo.completed));
   
+    // Add event listener to submit button
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       const text = input.value.trim();
@@ -50,7 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
         saveTodos();
         createTodoElement(text, false);
         input.value = '';
+        }
       }
-    });
-  });
+    );
+  }
+);
   
