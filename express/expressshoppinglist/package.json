@@ -1,0 +1,20 @@
+{
+  "name": "express-shopping-list",
+  "version": "1.0.0",
+  "description": "Express Shopping List API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "express",
+    "shopping",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "supertest": "^7.1.4"
+  }
+}
