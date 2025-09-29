@@ -1,0 +1,144 @@
+/* DogList.css - Dog list component styles */
+
+.DogList {
+  padding: 2rem 0;
+}
+
+.welcome-message {
+  color: #4A90E2;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.dog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.dog-card {
+  margin-bottom: 2rem;
+}
+
+.dog-card-inner {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.dog-card-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4A90E2, #357ABD, #4A90E2);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.dog-card-inner:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #4A90E2;
+}
+
+.dog-image {
+  border-radius: 50%;
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid #4A90E2;
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+  margin: 0 auto 1rem;
+}
+
+.dog-card-inner:hover .dog-image {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(74, 144, 226, 0.4);
+}
+
+.dog-name {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.dog-link {
+  color: #4A90E2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dog-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #4A90E2;
+  transition: width 0.3s ease;
+}
+
+.dog-link:hover {
+  color: #357ABD;
+  text-decoration: none;
+}
+
+.dog-link:hover::after {
+  width: 100%;
+}
+
+.dog-age {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .welcome-message {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .dog-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .dog-card-inner {
+    padding: 1rem;
+  }
+}
