@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    style="display: flex; align-items: center; margin: 5px;"
+  >
+    <div
+      style="height: 5em; width: 5em; background-color: blue; border: 1px solid #ccc; margin-right: 5px;"
+    />
+    <button
+      style="padding: 2px 6px;"
+    >
+      X
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders with custom props 1`] = `
+<DocumentFragment>
+  <div
+    style="display: flex; align-items: center; margin: 5px;"
+  >
+    <div
+      style="height: 15em; width: 10em; background-color: red; border: 1px solid #ccc; margin-right: 5px;"
+    />
+    <button
+      style="padding: 2px 6px;"
+    >
+      X
+    </button>
+  </div>
+</DocumentFragment>
+`;
