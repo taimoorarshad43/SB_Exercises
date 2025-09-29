@@ -1,0 +1,65 @@
+.candy {
+  background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.candy-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.candy-card p {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #333;
+}
+
+.candy-card button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.candy-card button:hover {
+  transform: scale(1.05);
+}
+
+.candy-card a {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.candy-card a:hover {
+  text-decoration: underline;
+}
+
+.candy-img {
+  position: absolute;
+  font-size: 2rem;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}

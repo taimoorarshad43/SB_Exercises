@@ -1,0 +1,65 @@
+.water {
+  background: linear-gradient(45deg, #74b9ff 0%, #0984e3 100%);
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.water-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.water-card p {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #333;
+}
+
+.water-card button {
+  background: linear-gradient(45deg, #74b9ff, #0984e3);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.water-card button:hover {
+  transform: scale(1.05);
+}
+
+.water-card a {
+  color: #0984e3;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.water-card a:hover {
+  text-decoration: underline;
+}
+
+.water-img {
+  position: absolute;
+  font-size: 2rem;
+  z-index: 1;
+  animation: ripple 2.5s ease-in-out infinite;
+}
+
+@keyframes ripple {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(180deg); }
+}
